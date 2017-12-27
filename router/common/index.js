@@ -91,13 +91,18 @@ module.exports = utils = {
     captureData(url){
         return new Promise((resolve, reject) => {
             request.get(url, function (err, response, body) {
+                console.log(body);
                 if (err) reject(err);
                 let data = /"params\W[^\]]+/.exec(body);
+                let title = /"spuTitle\W[^\,]+/.exec(body);
                 if (data) {
-                    resolve( `{${data[0]}]}`);
-                } else
+                    title = JSON.parse(`{${title[0]}}`);
+                    title = title["spuTitle"];
+                    data = {data: JSON.parse(`{${data[0]}]}`), title};
+                    resolve(data);
+                } else {
                     reject("没有搜索到");
-
+                }
             });
         })
     },

@@ -17,9 +17,9 @@ module.exports = {
                 if (!data.length) {
                     let url = `https://s.taobao.com/search?initiative_id=tbindexz_20170306&ie=utf8&spm=a21bo.2017.201856-taobao-item.2&sourceId=tb.index&search_type=item&ssid=s5-e&commend=all&imgfile=&q=${parameter}&suggest=history_1&_input_charset=utf-8&wq=${parameter}&suggest_query=${parameter}&source=suggest&app=detailproduct&through=1`;
                     let ary = await utils.captureData(url);
-                    let data = JSON.parse(ary);
+                    let data = ary;
                     ctx.body = {code: "0000", data, msg: "成功"};
-                    await utils.querySQLData(dataParameter, ary);
+                    // await utils.querySQLData(dataParameter, ary);
                 } else {
                     data = data[0].data;
                     data = JSON.parse(data);
