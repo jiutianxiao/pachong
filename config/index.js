@@ -18,5 +18,5 @@ module.exports = {
         port: 3306,
         multipleStatements: true
     },
-    listen: 3000
+    listen: 80
 };
