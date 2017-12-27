@@ -7,8 +7,8 @@ const Mysql = require("mysql2");
 const cheerio = require("cheerio");
 const iconv = require("iconv-lite")
 
-let {mysql} = require("../../config");
-const con = Mysql.createConnection(mysql);
+/*let {mysql} = require("../../config");
+const con = Mysql.createConnection(mysql);*/
 
 /**
  * 格式化mysql数据
