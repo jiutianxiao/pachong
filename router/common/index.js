@@ -91,7 +91,6 @@ module.exports = utils = {
     captureData(url){
         return new Promise((resolve, reject) => {
             request.get(url, function (err, response, body) {
-                console.log(body);
                 if (err) reject(err);
                 let data = /"params\W[^\]]+/.exec(body);
                 let title = /"spuTitle\W[^\,]+/.exec(body);
